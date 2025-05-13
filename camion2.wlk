@@ -1,4 +1,4 @@
-import cosas.*
+import cosas2.*
 object camion {
 
 const property tara = 1000
@@ -10,6 +10,7 @@ method camionSobreCargado () {
 
 method cargar(unaCosa) {
     cosasALlevar.add(unaCosa)
+    unaCosa.consecuenciaCarga()
 }
 
 method descargar(unaCosa){
@@ -37,5 +38,10 @@ method hayAlgoPesoEntreMaxYMin (pesoMinimo,pesoMaximo) =
     cosasALlevar.any({unaCosa => unaCosa.between(pesoMinimo, pesoMaximo)})
 
 method cosaMasPesadaCargada () = cosasALlevar.max({unaCosa => unaCosa.peso()})
+
+method cargarVariasCosas (listaDeCosas) {
+    cosasALlevar.addAll(listaDeCosas)
+    cosasALlevar.forEach({unaCosa => unaCosa.consecuenciaCarga()})
+}
 
 }

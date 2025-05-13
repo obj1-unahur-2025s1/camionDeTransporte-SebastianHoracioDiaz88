@@ -1,9 +1,20 @@
 import cosas.*
+import camion.*
 
 describe "group of test for cosas" {
 
-  test "first test" {
-    assert.that(true)
+  test "el peso de 10 ladrillos es 20" {
+    ladrillos.cantidad(10)
+    assert.equals(20, ladrillos.peso())
   }
+
+test "el embalaje de seguridad envuelve residuosRadioactivos que pesan 30 kg tiene peligrosidad 200 pero se reduce a la mitad" {
+
+residuosRadioactivos.peso(30)
+embalajeSeguridad.cosa(residuosRadioactivos)
+assert.equals(30, embalajeSeguridad.peso())
+assert.equals(100, embalajeSeguridad.peligrosidad())
+}
+
 
 }

@@ -1,9 +1,14 @@
+import cosas.*
 import camion.*
 
 describe "group of test for camion" {
 
-  test "first test" {
-    assert.that(true)
+  test "bumblebee es un robot dentro del camion" {
+    
+    bumblebee.transformarse() 
+    camion.cargar(bumblebee)
+    assert.that(camion.cosasALlevar().contains(bumblebee))
+    assert.that(bumblebee.peligrosidad() == 30)
   }
 
 }
